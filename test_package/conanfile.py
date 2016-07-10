@@ -8,7 +8,7 @@ username = os.getenv("CONAN_USERNAME", "TimSimpson")
 
 class gslTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
-    requires = "GSL/0.0.0.0-1%s/%s" % (username, channel)
+    requires = ("GSL/0.0.0.0-1@%s/%s" % (username, channel), )
     generators = "cmake"
 
     def build(self):
@@ -22,4 +22,4 @@ class gslTestConan(ConanFile):
 
     def test(self):
         os.chdir("bin")
-        self.run(".%sexample" % os.sep)
+        self.run(".%stest" % os.sep)
