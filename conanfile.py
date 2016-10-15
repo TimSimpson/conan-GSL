@@ -4,13 +4,13 @@ import os
 
 class GSLConan(ConanFile):
     name = "GSL"
-    version = "0.0.0.0-1"
+    version = "0.0.0.0-2"
     license = "The MIT License"
     url = "https://github.com/TimSimpson/conan-GSL"
 
     def source(self):
        self.run("git clone https://github.com/Microsoft/GSL.git")
-       self.run("cd GSL && git checkout 0535138459d0f78e39a2e558bc239f5727eaa13c")
+       self.run("cd GSL && git checkout 9ef335ce32a2287a810fc51dd2f9abd63e852ddf")
 
     def package(self):
-        self.copy("*", dst="include", src="GSL/include")
+        self.copy("*", dst="include/gsl", src="gsl/gsl")

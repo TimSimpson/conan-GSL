@@ -1,4 +1,4 @@
-#include <gsl.h>
+#include <gsl/gsl>
 
 int main() {
     gsl::owner<int *> owned_integer = new int(256);
